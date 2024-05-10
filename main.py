@@ -3,8 +3,6 @@ import pygame
 # set up pygame modules
 pygame.init()
 pygame.font.init()
-my_font = pygame.font.SysFont('Arial', 15)
-pygame.display.set_caption("AP CSP Pygame!")
 
 # set up variables for the display
 size = (400, 300)
