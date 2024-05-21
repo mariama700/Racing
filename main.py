@@ -1,30 +1,57 @@
 import pygame
+from redcar import RedCar
+from logo import Logo
+from play import Play
+from sound import Sound
 
 # set up pygame modules
 pygame.init()
 pygame.font.init()
+my_font = pygame.font.SysFont('Arial', 15)
+pygame.display.set_caption("Road Busters")
 
 # set up variables for the display
-size = (400, 300)
+SCREEN_HEIGHT = 370
+SCREEN_WIDTH = 530
+size = (SCREEN_WIDTH, SCREEN_HEIGHT)
 screen = pygame.display.set_mode(size)
 
-name = "Mr. Das"
+r = 86
+g = 71
+b = 51
+c1 = RedCar(100, 100)
+logo = Logo(120, 50)
+sound = Sound(475, 10)
+play_button = Play(165, 250)
+c1.image = pygame.transform.rotate(c1.image, 180)
 
 # render the text for later
-display_name = my_font.render(name, True, (255, 255, 255))
 
 # The loop will carry on until the user exits the game (e.g. clicks the close button).
 run = True
-
-# -------- Main Program Loop -----------
+    
+        # --- Main event loop
 while run:
-    # --- Main event loop
     for event in pygame.event.get():  # User did something
         if event.type == pygame.QUIT:  # If user clicked close
             run = False
+        if event.type == pygame.MOUSEBUTTONUP:
+            if sound.rect.collidepoint(event.pos):
+                soundoff = True
+                sound.see_sound_off(soundoff)
+                
+    keys = pygame.key.get_pressed()  # checking pressed keys
+    if keys[pygame.K_d]:
+        c1.move_direction("right")
+    if keys[pygame.K_a]:
+        c1.move_direction("left")
 
-    screen.fill((0, 0, 0))
-    screen.blit(display_name, (0, 0))
+
+    screen.fill((r, g, b))
+    #screen.blit(c1.image, c1.rect)
+    screen.blit(logo.image, logo.rect)
+    screen.blit(sound.image, sound.rect)
+    screen.blit(play_button.image, play_button.rect)
     pygame.display.update()
 
 # Once we have exited the main program loop we can stop the game engine:
