@@ -29,6 +29,8 @@ c1.image = pygame.transform.rotate(c1.image, 180)
 
 # The loop will carry on until the user exits the game (e.g. clicks the close button).
 run = True
+soundoff = False
+game_start = False
     
         # --- Main event loop
 while run:
@@ -37,21 +39,23 @@ while run:
             run = False
         if event.type == pygame.MOUSEBUTTONUP:
             if sound.rect.collidepoint(event.pos):
-                soundoff = True
+                soundoff = not soundoff
                 sound.see_sound_off(soundoff)
-                
+            if play_button.rect.collidepoint(event.pos):
+                game_start = True
+
     keys = pygame.key.get_pressed()  # checking pressed keys
     if keys[pygame.K_d]:
         c1.move_direction("right")
     if keys[pygame.K_a]:
         c1.move_direction("left")
 
-
     screen.fill((r, g, b))
+    if game_start == False:
+        screen.blit(logo.image, logo.rect)
+        screen.blit(play_button.image, play_button.rect)
     #screen.blit(c1.image, c1.rect)
-    screen.blit(logo.image, logo.rect)
     screen.blit(sound.image, sound.rect)
-    screen.blit(play_button.image, play_button.rect)
     pygame.display.update()
 
 # Once we have exited the main program loop we can stop the game engine:
