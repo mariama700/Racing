@@ -19,6 +19,7 @@ screen = pygame.display.set_mode(size)
 r = 86
 g = 71
 b = 51
+collide = "no"
 c1 = RedCar(100, 100)
 logo = Logo(120, 50)
 sound = Sound(475, 10)
@@ -43,6 +44,7 @@ while run:
                 sound.see_sound_off(soundoff)
             if play_button.rect.collidepoint(event.pos):
                 game_start = True
+        play_button.see_hover()
 
     keys = pygame.key.get_pressed()  # checking pressed keys
     if keys[pygame.K_d]:
