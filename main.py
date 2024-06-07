@@ -4,6 +4,7 @@ from logo import Logo
 from play import Play
 from sound import Sound
 from highway import Highway
+from highway import Rules
 
 # set up pygame modules
 pygame.init()
@@ -26,6 +27,7 @@ logo = Logo(120, 50)
 sound = Sound(475, 10)
 play_button = Play(165, 250)
 highway = Highway(10, 0)
+rules = Rules(45, 20)
 c1.image = pygame.transform.rotate(c1.image, 180)
 
 # render the text for later
@@ -60,9 +62,12 @@ while run:
         screen.blit(play_button.image, play_button.rect)
     if show_rules == True:
         screen.blit(highway.image, highway.rect)
+        screen.blit(rules.image, rules.rect)
     #screen.blit(c1.image, c1.rect)
     screen.blit(sound.image, sound.rect)
     pygame.display.update()
 
+# Once we have exited the main program loop we can stop the game engine:
+pygame.quit()
 # Once we have exited the main program loop we can stop the game engine:
 pygame.quit()
