@@ -41,3 +41,6 @@ class Play:
             scale_size = (self.image_size[0] * .4, self.image_size[1] * .4)
             self.image = pygame.transform.scale(self.image, scale_size)
             self.image_size = self.image.get_size()
+
+            
+

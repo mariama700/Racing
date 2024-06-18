@@ -11,3 +11,6 @@ class BlueCar:
         self.image = pygame.transform.rotate(self.image, 180)
         self.rect = self.image.get_rect(topleft=(x, y))
         self.delta = 1
+
+   #  blue_car = spawn_blue_car(positions)
+            

@@ -1,3 +1,5 @@
+#make rules slightly transparent
+#make popup show after 5 seconds
 import pygame
 
 
@@ -39,3 +41,7 @@ class Rules:
     scale_size = (self.image_size[0] * .62, self.image_size[1] * .62)
     self.image = pygame.transform.scale(self.image, scale_size)
     self.image_size = self.image.get_size()
+
+
+
+
