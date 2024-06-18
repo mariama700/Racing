@@ -18,10 +18,8 @@ class Play:
                 
     def see_hover(self):
         mouse_pos = pygame.mouse.get_pos()
-        
         if self.rect.collidepoint(mouse_pos):
             collide = "yes"
-            
         else:
             collide = "no"
             
