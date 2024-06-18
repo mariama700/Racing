@@ -1,5 +1,3 @@
-#make rules slightly transparent
-#make popup show after 5 seconds
 import pygame
 
 
@@ -9,6 +7,24 @@ class Highway:
     self.x = x
     self.y = y
     self.image = pygame.image.load("highway.png")
+    self.image_size = self.image.get_size()
+    self.rect = pygame.Rect(self.x, self.y, self.image_size[0], self.image_size[1])
+
+class Highway2:
+  
+  def __init__(self, x, y):
+      self.x = x
+      self.y = y
+      self.image = pygame.image.load("highway2.png")
+      self.image_size = self.image.get_size()
+      self.rect = pygame.Rect(self.x, self.y, self.image_size[0], self.image_size[1])
+
+class Highway3:
+
+  def __init__(self, x, y):
+    self.x = x
+    self.y = y
+    self.image = pygame.image.load("highway3.png")
     self.image_size = self.image.get_size()
     self.rect = pygame.Rect(self.x, self.y, self.image_size[0], self.image_size[1])
 
